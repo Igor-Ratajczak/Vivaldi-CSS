@@ -7,13 +7,6 @@
 * More animations
 * Remove Reader View from address bar
 
-## Problems
-
-### Bookmarks & Status Bar
-
-When both the **Bookmark Bar** and **Status Bar** are enabled, they overlap in the same space.  
-As a result, the **Status Bar becomes unclickable** because is under of **Bookmark Bar**.
-
 ## Screenshots
 
 ### Startpage

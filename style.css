@@ -79,11 +79,10 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 }
 
 /* Bookmark bar */
-
 .bookmark-bar.default {
   grid-row: 3;
   height: 13px;
-  transition: height 0.3s, background 0.3s;
+  transition: height 0.3s 0.5s, background 0.3s 0.5s;
   position: fixed;
   z-index: 100000;
   bottom: 0px;
@@ -100,6 +99,10 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
   width: 150px;
   cursor: pointer;
   max-width: 150px;
+}
+
+.bookmark-bar.default button > span.title {
+  transition: font-size 0.3s 0.5s;
 }
 
 .bookmark-bar.default:hover button > span.title {
@@ -126,7 +129,6 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 }
 
 /* Fullscreen mode  */
-
 #browser.fullscreen div#main {
   grid-template: 0 auto 0 / 100%;
 }
@@ -136,7 +138,6 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 }
 
 /* Settings */
-
 .settings-container .vivaldi-settings input[type='radio'],
 input[type='checkbox'] {
   border-radius: 25px;
@@ -144,7 +145,6 @@ input[type='checkbox'] {
 }
 
 /* Window buttons */
-
 .toolbar.toolbar-mainbar.toolbar-visible.toolbar-large.toolbar-droptarget > * {
   height: 100%;
   align-items: center;
@@ -174,7 +174,6 @@ input[type='checkbox'] {
 }
 
 /* Search bar */
-
 .OmniLinkItem {
   --item-height: calc(30px + var(--densityGap));
 }
@@ -263,6 +262,7 @@ input#urlFieldInput {
 .UrlFragment--Highlight {
   font-weight: 700;
 }
+
 /* Animate web page */
 .webpageview {
   visibility: visible !important;
@@ -292,6 +292,7 @@ div.webpageview {
 /* Footer */
 footer#footer {
   background: transparent !important;
+  top: -15px;
 }
 
 /* Tab bar animation */
