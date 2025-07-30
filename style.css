@@ -82,7 +82,7 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 .bookmark-bar.default {
   grid-row: 3;
   height: 13px;
-  transition: height 0.3s 0.5s, background 0.3s 0.5s;
+  transition: all 0.3s 0.2s;
   position: fixed;
   z-index: 100000;
   bottom: 0px;
@@ -91,7 +91,7 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 }
 
 .bookmark-bar.default:hover {
-  height: 78px;
+  height: 50px;
   background: #000000bf !important;
 }
 
@@ -102,7 +102,7 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
 }
 
 .bookmark-bar.default button > span.title {
-  transition: font-size 0.3s 0.5s;
+  transition: font-size 0.3s 0.2s;
 }
 
 .bookmark-bar.default:hover button > span.title {
@@ -119,8 +119,8 @@ div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
   height: 100%;
   width: auto;
   aspect-ratio: 1 / 1;
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 30px;
+  max-height: 30px;
 }
 
 .bookmark-bar button img.icon,
