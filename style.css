@@ -67,6 +67,10 @@ div#tabs-tabbar-container {
   background: transparent !important;
 }
 
+.tabbar-wrapper:empty {
+  display: none !important;
+}
+
 .button-popup {
   pointer-events: auto;
   position: fixed;
