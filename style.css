@@ -29,8 +29,24 @@ div#panels-container {
 }
 
 /* Expanding Left Tabs */
-.tabbar-wrapper:hover #tabs-tabbar-container {
+.tabbar-wrapper:hover:has(#tabs-subcontainer) #tabs-tabbar-container {
+  width: 500px !important;
+}
+.tabbar-wrapper:hover #tabs-tabbar-container,
+.tabbar-wrapper:hover #tabs-subcontainer,
+.tabbar-wrapper:hover #tabs-subcontainer .tab-strip {
   width: 250px !important;
+}
+#tabs-subcontainer,
+#tabs-subcontainer .tab-strip {
+  width: 0px !important;
+  transition: left 0.3s 0.2s, width 0.3s 0.2s;
+  flex: none !important;
+}
+
+/* Fix tooltip visibility over stacked tabs */
+div#vivaldi-tooltip {
+  z-index: 100000;
 }
 
 .tabbar-wrapper:hover div#tabs-tabbar-container {
