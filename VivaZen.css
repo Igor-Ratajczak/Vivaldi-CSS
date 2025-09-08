@@ -1,0 +1,437 @@
+div#browser:not(.tabs-left, .tabs-right):not(.tabs-bottom) {
+    display: grid;
+    grid-template: 0 1fr 35px / 100%;
+}
+
+div#browser > div#main {
+    grid-row: 2;
+}
+
+div#browser > footer#footer {
+    grid-row: 3;
+}
+
+div#browser > div#header,
+div#browser > div#main > .mainbar,
+div#browser > div#main > .bookmark-bar {
+    transition: transform 0.3s 0.1s cubic-bezier(0, 0.58, 0.71, 1.27);
+    align-content: center;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+div#browser > div#header {
+    transform: translateY(-100px);
+    grid-row: 1;
+    height: 45px;
+    z-index: 1001;
+}
+div#browser:has(.bookmark-bar-top-off, .bookmark-bar-bottom-off) > div#header {
+    transform: translateY(-70px);
+}
+div#browser:is(.bookmark-bar-top-off, .bookmark-bar-bottom-off)
+    > div#main
+    > .mainbar {
+    transform: translateY(-40px);
+}
+
+div#browser > div#main > .mainbar {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-70px);
+    height: 40px;
+    z-index: 1000;
+}
+div#browser > div#main > .bookmark-bar {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-40px);
+    height: 50px;
+    z-index: 999;
+}
+
+div#browser > div#header,
+div#browser > div#header *,
+div#browser > div#main > .mainbar,
+div#browser > div#main > .mainbar *,
+div#browser > div#main > .bookmark-bar,
+div#browser > div#main > .bookmark-bar * {
+    -webkit-app-region: none !important;
+}
+
+div#browser:has(
+        :is(
+            div#header,
+            .mainbar,
+            .ToolbarButtonPopup-DefaultStyles,
+            .ToolbarButtonPopup-DefaultStyles *,
+            .bookmark-bar
+        ):hover
+    )
+    > div#main
+    > .mainbar {
+    transform: translateY(0);
+}
+div#browser:has(
+        :is(
+            div#header,
+            .mainbar,
+            .ToolbarButtonPopup-DefaultStyles,
+            .ToolbarButtonPopup-DefaultStyles *,
+            .bookmark-bar
+        ):hover
+    )
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(40px);
+}
+
+div#browser.tabs-top:has(
+        :is(
+            div#header,
+            .mainbar,
+            .ToolbarButtonPopup-DefaultStyles,
+            .ToolbarButtonPopup-DefaultStyles *,
+            .bookmark-bar
+        ):hover
+    )
+    > div#header {
+    transform: translateY(0);
+    z-index: 10001;
+}
+
+div#browser.tabs-top:has(
+        :is(
+            div#header,
+            .mainbar,
+            .ToolbarButtonPopup-DefaultStyles,
+            .ToolbarButtonPopup-DefaultStyles *,
+            .bookmark-bar
+        ):hover
+    )
+    > div#main
+    > .mainbar {
+    transform: translateY(40px);
+}
+div#browser.tabs-top:has(
+        :is(
+            div#header,
+            .mainbar,
+            .ToolbarButtonPopup-DefaultStyles,
+            .ToolbarButtonPopup-DefaultStyles *,
+            .bookmark-bar
+        ):hover
+    )
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(80px);
+}
+
+div#browser.tabs-left:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .mainbar,
+div#browser.tabs-bottom:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .mainbar,
+div#browser.tabs-right:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .mainbar {
+    transform: translateY(0) !important;
+}
+
+div#browser.toolbar-edit-mode > div#header,
+div#browser:has(.UrlBar-UrlFieldWrapper .OmniDropdown) > div#header {
+    transform: translateY(0) !important;
+}
+
+div#browser.toolbar-edit-mode.tabs-top > div#main > .mainbar,
+div#browser:has(.UrlBar-UrlFieldWrapper .OmniDropdown) > div#main > .mainbar {
+    transform: translateY(40px) !important;
+}
+
+div#browser.toolbar-edit-mode.tabs-left > div#main > .mainbar,
+div#browser.toolbar-edit-mode.tabs-bottom > div#main > .mainbar,
+div#browser.toolbar-edit-mode.tabs-right > div#main > .mainbar,
+div#browser:not(.tabs-top):has(.UrlBar-UrlFieldWrapper .OmniDropdown)
+    > div#main
+    > .mainbar {
+    transform: translateY(0) !important;
+}
+
+div#browser.tabs-left:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .bookmark-bar,
+div#browser.tabs-bottom:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .bookmark-bar,
+div#browser.tabs-right:has(:is(div#header, .mainbar, .bookmark-bar):hover)
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(40px) !important;
+}
+
+div#browser.toolbar-edit-mode.tabs-top > div#main > .bookmark-bar,
+div#browser:has(.UrlBar-UrlFieldWrapper .OmniDropdown)
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(60px) !important;
+}
+
+div#browser:is(.tabs-top):has(.UrlBar-UrlFieldWrapper .OmniDropdown)
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(80px) !important;
+}
+
+div#browser.toolbar-edit-mode.tabs-left > div#main > .bookmark-bar,
+div#browser.toolbar-edit-mode.tabs-bottom > div#main > .bookmark-bar,
+div#browser.toolbar-edit-mode.tabs-right > div#main > .bookmark-bar,
+div#browser:not(.tabs-top):has(.UrlBar-UrlFieldWrapper .OmniDropdown)
+    > div#main
+    > .bookmark-bar {
+    transform: translateY(40px) !important;
+}
+
+div#browser > div#main > .mainbar::before {
+    content: "";
+    width: 100%;
+    height: 80px;
+    background: var(--background);
+    position: absolute;
+    display: block;
+    top: -100%;
+    left: 0;
+    z-index: -1;
+}
+
+.ToolbarButtonPopup-DefaultStyles,
+.ToolbarButtonPopup-DefaultStyles * {
+    z-index: 100000;
+}
+
+div#browser:is(.tabs-left, .tabs-right) {
+    .tabbar-wrapper:hover:has(#tabs-subcontainer) #tabs-tabbar-container {
+        width: 500px !important;
+    }
+    .tabbar-wrapper:hover #tabs-tabbar-container,
+    .tabbar-wrapper:hover #tabs-subcontainer,
+    .tabbar-wrapper:hover #tabs-subcontainer .tab-strip {
+        width: 250px !important;
+    }
+    #tabs-subcontainer,
+    #tabs-subcontainer .tab-strip {
+        width: 0px !important;
+        transition:
+            left 0.3s 0.2s,
+            width 0.3s 0.2s;
+        flex: none !important;
+    }
+
+    /* Fix tooltip visibility over stacked tabs */
+    div#vivaldi-tooltip {
+        z-index: 1100000;
+    }
+
+    .tabbar-wrapper:hover div#tabs-tabbar-container.left {
+        left: 0 !important;
+    }
+
+    .tabbar-wrapper:hover div#tabs-tabbar-container.right {
+        right: 0 !important;
+    }
+
+    div#tabs-tabbar-container.right {
+        right: -50px;
+    }
+
+    div#tabs-tabbar-container.left {
+        left: -50px;
+    }
+
+    div#tabs-tabbar-container {
+        position: absolute;
+        width: 40px !important;
+    }
+    div#tabs-tabbar-container.left:has(
+            button.ToolbarButton-Button[name="WorkspaceButton"][aria-expanded="true"]
+        ) {
+        left: 0 !important;
+        width: 250px !important;
+    }
+    div#tabs-tabbar-container.right:has(
+            button.ToolbarButton-Button[name="WorkspaceButton"][aria-expanded="true"]
+        ) {
+        right: 0 !important;
+        width: 250px !important;
+    }
+
+    #tabs-tabbar-container.left:hover .newtab {
+        opacity: 1 !important;
+        transition: opacity 200ms ease 150ms;
+    }
+
+    div#tabs-tabbar-container {
+        transition:
+            left 0.3s 0.2s,
+            right 0.3s 0.2s,
+            width 0.3s 0.2s;
+        background-image: var(--background) !important;
+        background-size: 100vw 100vh;
+        top: 0;
+        background-attachment: fixed;
+        height: 100%;
+    }
+
+    .tabbar-wrapper {
+        width: 10px;
+        z-index: 100;
+        background: transparent !important;
+    }
+
+    .tabbar-wrapper:empty {
+        display: none !important;
+    }
+
+    .button-popup {
+        pointer-events: auto;
+        position: fixed;
+        z-index: 1000 !important;
+    }
+}
+
+.window-buttongroup {
+    height: 100%;
+    align-items: center;
+    top: 0 !important;
+}
+
+.window-buttongroup button {
+    width: 28px !important;
+    height: 28px !important;
+    border: 1px solid white !important;
+}
+
+.window-buttongroup .window-minimize:hover {
+    background: #03786f !important;
+}
+.window-buttongroup .window-maximize:hover {
+    background: #03786f !important;
+}
+.window-buttongroup .window-close:hover {
+    background: #590505 !important;
+}
+
+/* Global changes */
+:root {
+    --background: url("chrome://vivaldi-data/thumbnail/O3CNZC67HXCG6MMASH7YCHCIJUNBQMLE.jpg");
+}
+
+#browser {
+    background-image: var(--background) !important;
+}
+
+.mainbar,
+.bookmark-bar,
+.bookmark-bar.default *,
+.UrlBar-AddressField,
+#header,
+#header * {
+    background: var(--colorBg) !important;
+    background: var(--background) !important;
+}
+
+div#main > *,
+.UrlBar-AddressField {
+    border: none !important;
+}
+
+div#panels-container {
+    background: transparent !important;
+}
+
+/*  Remove reader view */
+div.button-toolbar:has(button.ToolbarButton-Button[aria-label="Reader View"]) {
+    display: none;
+}
+
+/* Fullscreen mode  */
+#browser.fullscreen div#main {
+    grid-template: 0 auto 0 / 100%;
+}
+
+#main > .inner {
+    grid-row: 2;
+    margin-top: 5px;
+}
+
+/* Settings */
+.settings-container .vivaldi-settings input[type="radio"],
+input[type="checkbox"] {
+    border-radius: 25px;
+    padding: 10px;
+}
+
+/* Window buttons */
+.toolbar.toolbar-mainbar.toolbar-visible.toolbar-large.toolbar-droptarget > * {
+    height: 100%;
+    align-items: center;
+}
+
+#browser .window-buttongroup button {
+    width: 30px;
+    border-radius: 25px;
+    border: 2px solid;
+    height: 30px;
+}
+
+#browser.linux .window-buttongroup button.window-minimize:hover {
+    background-color: rgb(2 97 1 / 99%);
+}
+
+#browser.linux .window-buttongroup button.window-maximize:hover {
+    background-color: rgb(148 149 0 / 99%);
+}
+
+#browser.linux .window-buttongroup button.window-close:hover {
+    background: #6d0101;
+}
+
+.window-buttongroup.on-mainbar {
+    align-self: anchor-center;
+}
+
+/* Animate web page */
+.webpageview {
+    visibility: visible !important;
+}
+
+div.webpageview {
+    transition: opacity 0.7s;
+}
+
+@starting-style {
+    .webpageview {
+        opacity: 0 !important;
+    }
+}
+
+/* Startpage */
+.startpage
+    *:not(
+        div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title
+    ):not(
+        div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title *
+    ):not(.OmniDropdown) {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Footer */
+footer#footer {
+    background: transparent !important;
+}
+
+/* Tab bar animation */
+:not(.resizing)#panels-container.overlay .panel-group {
+    transition: width 0.2s ease-out !important;
+}

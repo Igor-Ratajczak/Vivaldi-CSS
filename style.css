@@ -49,18 +49,36 @@ div#vivaldi-tooltip {
   z-index: 100000;
 }
 
-.tabbar-wrapper:hover div#tabs-tabbar-container {
+.tabbar-wrapper:hover div#tabs-tabbar-container.left {
   left: 0 !important;
+}
+
+.tabbar-wrapper:hover div#tabs-tabbar-container.right {
+  right: 0 !important;
+}
+
+div#tabs-tabbar-container.right {
+  right: -50px;
+}
+
+div#tabs-tabbar-container.left {
+  left: -50px;
 }
 
 div#tabs-tabbar-container {
+  position: absolute;
   width: 40px !important;
 }
-
-div#tabs-tabbar-container:has(
-    button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
-  ) {
+div#tabs-tabbar-container.left:has(
+  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
+) {
   left: 0 !important;
+  width: 250px !important;
+}
+div#tabs-tabbar-container.right:has(
+  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
+) {
+  right: 0 !important;
   width: 250px !important;
 }
 
@@ -70,10 +88,11 @@ div#tabs-tabbar-container:has(
 }
 
 div#tabs-tabbar-container {
-  left: -50px;
-  transition: left 0.3s 0.2s, width 0.3s 0.2s;
+  transition: left 0.3s 0.2s, right 0.3s 0.2s, width 0.3s 0.2s;
   background-image: var(--background) !important;
+  background-size: 100vw 100vh;
   top: 0;
+  background-attachment: fixed;
   height: 100%;
 }
 
