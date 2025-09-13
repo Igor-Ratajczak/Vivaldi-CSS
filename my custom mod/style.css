@@ -1,0 +1,340 @@
+/* Global changes */
+:root {
+  --background: url('chrome://vivaldi-data/thumbnail/O3CNZC67HXCG6MMASH7YCHCIJUNBQMLE.jpg');
+}
+
+#browser {
+  background-image: var(--background) !important;
+}
+
+.mainbar,
+.bookmark-bar,
+.bookmark-bar.default *,
+.UrlBar-AddressField {
+  background: none !important;
+}
+
+div#main > *,
+.UrlBar-AddressField {
+  border: none !important;
+}
+
+div#main {
+  display: grid;
+  grid-template: 50px auto 15px / 100%;
+}
+
+div#panels-container {
+  background: transparent !important;
+}
+
+/* Expanding Left Tabs */
+.tabbar-wrapper:hover:has(#tabs-subcontainer) #tabs-tabbar-container {
+  width: 500px !important;
+}
+.tabbar-wrapper:hover #tabs-tabbar-container,
+.tabbar-wrapper:hover #tabs-subcontainer,
+.tabbar-wrapper:hover #tabs-subcontainer .tab-strip {
+  width: 250px !important;
+}
+#tabs-subcontainer,
+#tabs-subcontainer .tab-strip {
+  width: 0px !important;
+  transition: left 0.3s 0.2s, width 0.3s 0.2s;
+  flex: none !important;
+}
+
+/* Fix tooltip visibility over stacked tabs */
+div#vivaldi-tooltip {
+  z-index: 100000;
+}
+
+.tabbar-wrapper:hover div#tabs-tabbar-container.left {
+  left: 0 !important;
+}
+
+.tabbar-wrapper:hover div#tabs-tabbar-container.right {
+  right: 0 !important;
+}
+
+div#tabs-tabbar-container.right {
+  right: -50px;
+}
+
+div#tabs-tabbar-container.left {
+  left: -50px;
+}
+
+div#tabs-tabbar-container {
+  position: absolute;
+  width: 40px !important;
+}
+div#tabs-tabbar-container.left:has(
+  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
+) {
+  left: 0 !important;
+  width: 250px !important;
+}
+div#tabs-tabbar-container.right:has(
+  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
+) {
+  right: 0 !important;
+  width: 250px !important;
+}
+
+#tabs-tabbar-container.left:hover .newtab {
+  opacity: 1 !important;
+  transition: opacity 200ms ease 150ms;
+}
+
+div#tabs-tabbar-container {
+  transition: left 0.3s 0.2s, right 0.3s 0.2s, width 0.3s 0.2s;
+  background-image: var(--background) !important;
+  background-size: 100vw 100vh;
+  top: 0;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+.tabbar-wrapper {
+  width: 10px;
+  z-index: 100;
+  background: transparent !important;
+}
+
+.tabbar-wrapper:empty {
+  display: none !important;
+}
+
+.button-popup {
+  pointer-events: auto;
+  position: fixed;
+  z-index: 1000 !important;
+}
+
+/*  Remove reader view */
+div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
+  display: none;
+}
+
+/* Bookmark bar */
+.bookmark-bar.default {
+  grid-row: 3;
+  height: 13px;
+  transition: all 0.3s 0.2s;
+  position: fixed;
+  z-index: 100000;
+  bottom: 0px;
+  width: 100%;
+  background: transparent !important;
+}
+
+.bookmark-bar.default:hover {
+  height: 50px;
+  background: #000000bf !important;
+}
+
+.bookmark-bar button {
+  width: 150px;
+  cursor: pointer;
+  max-width: 150px;
+}
+
+.bookmark-bar.default button > span.title {
+  transition: font-size 0.3s 0.2s;
+}
+
+.bookmark-bar.default:hover button > span.title {
+  font-size: 15px;
+}
+
+.bookmark-bar .marker {
+  max-width: 200px;
+  cursor: pointer;
+}
+
+.bookmark-bar button img,
+.bookmark-bar button svg {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.bookmark-bar button img.icon,
+.bookmark-bar button svg.icon {
+  transition: all 0.3s;
+}
+
+/* Fullscreen mode  */
+#browser.fullscreen div#main {
+  grid-template: 0 auto 0 / 100%;
+}
+
+#main > .inner {
+  grid-row: 2;
+}
+
+/* Settings */
+.settings-container .vivaldi-settings input[type='radio'],
+input[type='checkbox'] {
+  border-radius: 25px;
+  padding: 10px;
+}
+
+/* Window buttons */
+.toolbar.toolbar-mainbar.toolbar-visible.toolbar-large.toolbar-droptarget > * {
+  height: 100%;
+  align-items: center;
+}
+
+#browser .window-buttongroup button {
+  width: 30px;
+  border-radius: 25px;
+  border: 2px solid;
+  height: 30px;
+}
+
+#browser.linux .window-buttongroup button.window-minimize:hover {
+  background-color: rgb(2 97 1 / 99%);
+}
+
+#browser.linux .window-buttongroup button.window-maximize:hover {
+  background-color: rgb(148 149 0 / 99%);
+}
+
+#browser.linux .window-buttongroup button.window-close:hover {
+  background: #6d0101;
+}
+
+.window-buttongroup.on-mainbar {
+  align-self: anchor-center;
+}
+
+/* Search bar */
+.OmniLinkItem {
+  --item-height: calc(30px + var(--densityGap));
+}
+
+.OmniLinkItem:hover {
+  background: #062935 !important;
+}
+
+.OmniLinkItem,
+input[type='button'],
+input[type='checkbox'],
+button {
+  cursor: pointer;
+}
+
+.OmniLinkItem:not(.OmniLinkItem--Highlighted) .OmniLinkItem-Badge--HoverOnly {
+  display: block;
+}
+
+.OmniDropdown:not(.startpage .OmniDropdown) {
+  position: fixed;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  left: 50%;
+  padding: 10px !important;
+}
+
+.OmniDropdown > ul > li {
+  height: 40px;
+}
+
+span.displayTitle {
+  max-width: 100% !important;
+}
+
+input#urlFieldInput {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.3s;
+}
+
+.UrlBar-AddressField.urlfield-anchor.button-textonly.below {
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  outline: none;
+  height: 40px !important;
+  gap: 10px;
+}
+
+.toolbar.toolbar-small.toolbar-insideinput:first-child {
+  justify-content: space-between;
+}
+
+.toolbar.toolbar-small.toolbar-insideinput {
+  justify-content: end;
+}
+
+.color-behind-tabs-on
+  .UrlBar-AddressField:focus-within
+  > .UrlBar-UrlFieldWrapper {
+  outline: 2px solid;
+  border-radius: 25px;
+  padding: 0px 20px;
+}
+
+.UrlFragments.UrlFragment-Wrapper.UrlFragment-Wrapper--ShouldHighlight {
+  position: relative;
+  width: 100%;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.UrlField.urlfield-clickoutside-ignore {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.UrlField.urlfield-clickoutside-ignore > input,
+.UrlField.urlfield-clickoutside-ignore > div {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.UrlFragment--Highlight {
+  font-weight: 700;
+}
+
+/* Animate web page */
+.webpageview {
+  visibility: visible !important;
+}
+
+div.webpageview {
+  transition: opacity 0.7s;
+}
+
+@starting-style {
+  .webpageview {
+    opacity: 0 !important;
+  }
+}
+
+/* Startpage */
+.startpage
+  *:not(
+    div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title
+  ):not(
+    div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title *
+  ):not(.OmniDropdown) {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Footer */
+footer#footer {
+  background: transparent !important;
+  top: -15px;
+}
+
+/* Tab bar animation */
+:not(.resizing)#panels-container.overlay .panel-group {
+  transition: width 0.2s ease-out !important;
+}

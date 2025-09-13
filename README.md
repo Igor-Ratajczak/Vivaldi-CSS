@@ -1,73 +1,30 @@
-# Vivaldi-CSS
+# Vivaldi-CSS Mods
 
-## New UI for Vivaldi
+A collection of CSS modifications for the Vivaldi browser
 
-* Tab bar with auto-hide
-* Search on center
-* More animations
-* Remove Reader View from address bar
+## Available Mods
 
-## Screenshots
+### 1. My Custom Mod
 
-### Startpage
+My daily driver CSS modification that includes:
 
-![Screenshot of a startpage](/screenshots/startpage.png)
+- Auto-hiding tab bar
+- Centered search interface
 
-### Address Bar
+[View details](./my%20custom%20mod/README.md)
 
-![Screenshot of a address bar](/screenshots/tab_bar.png)
+### 2. VivaZen
 
-### Search
+A zen-like experience for Vivaldi with:
 
-![Screenshot of a search](/screenshots/search.png)
+- Auto-hiding interface (tab bar, address bar, bookmarks)
+- Compatible with all tab bar positions
 
-### History
+[View details](./VivaZen/README.md)
 
-![Screenshot of a history](/screenshots/history.png)
+## Installation
 
-### Floating panel on
-
-![Screenshot of a floating panel on](/screenshots/floating_panel_on.png)
-
-### Floating panel off
-
-![Screenshot of a floating panel off.](/screenshots/floating_panel_off.png)
-
-## How to use it?
-
-1. Go to **vivaldi://experiments** enable **Allow CSS modification**
-2. Download *style.css* and put in new folder e.g. vivaldi
-3. In settings go to **Appearance** find **Custom UI Modifications** and select folder with *style.css*
-4. The screenshots use the theme Purple Haze by resdek. You can download it from Vivaldi themes.
-5. Reboot browser
-
-## Your changes
-
-### Change background
-
-1. Paste your picture in **vivaldi/Default/VivaldiThumbnails/**
-2. In **`style.css`**  
-   * Locate the following line of code:  
-
-     ```css
-     chrome://vivaldi-data/thumbnail/O3CNZC67HXCG6MMASH7YCHCIJUNBQMLE.jpg
-     ```
-
-   * Replace it with:  
-
-     ```css
-     chrome://vivaldi-data/thumbnail/YourIconName
-     ```
-
-3. Save, reboot browser and have fun!
-
-### Reader View
-
-If you want reader view on address bar. Remove this code from *style.css*
-
-```css
-/*  Remove reader view */
-div.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
-    display: none;
-}
-```
+1. Go to **vivaldi://experiments** and enable **Allow CSS modification**
+2. Download the CSS file from your preferred mod folder
+3. In Vivaldi settings, go to **Appearance** → **Custom UI Modifications** and select the folder with the CSS file
+4. Restart Vivaldi to apply changes
