@@ -6,494 +6,525 @@
 } */
 
 /* Remove reader view button */
-.button-toolbar:has(button.ToolbarButton-Button[aria-label='Reader View']) {
-  display: none;
+.button-toolbar:has(button.ToolbarButton-Button[aria-label="Reader View"]) {
+    display: none;
 }
 
 /* ========== CSS VARIABLES ========== */
 :root {
-  /* Background Configuration */
-  --background: linear-gradient(45deg, #000000, #032e17, #06938c, #000000);
-  /*--background: url("chrome://vivaldi-data/thumbnail/YourIconName"); */
-  --background-size: 100vw 100vh;
+    /* Background Configuration */
+    --background: linear-gradient(45deg, #000000, #032e17, #06938c, #000000);
+    /*--background: url("chrome://vivaldi-data/thumbnail/YourIconName"); */
+    --background-size: 100vw 100vh;
 
-  /* Layout Dimensions */
-  --header-height: 40px;
-  --mainbar-height: 50px;
-  --bookmark-height: 40px;
-  --tab-stacking-offset: 0px;
+    /* Layout Dimensions */
+    --header-height: 40px;
+    --mainbar-height: 50px;
+    --bookmark-height: 40px;
+    --tab-stacking-offset: 0px;
 
-  /* Modern Color Scheme using oklch */
-  --hover-color-minimize: oklch(0.55 0.15 180);
-  --hover-color-maximize: oklch(0.55 0.15 180);
-  --hover-color-close: oklch(0.35 0.2 0);
-  --window-button-border: 1px solid oklch(1 0 0);
-  --accent-bg: color-mix(in oklch, var(--colorAccentBg) 90%, transparent);
-  --accent-fg: color-mix(in oklch, var(--colorAccentFg) 95%, transparent);
+    /* Modern Color Scheme using oklch */
+    --hover-color-minimize: oklch(0.55 0.15 180);
+    --hover-color-maximize: oklch(0.55 0.15 180);
+    --hover-color-close: oklch(0.35 0.2 0);
+    --window-button-border: 1px solid oklch(1 0 0);
+    --accent-bg: color-mix(in oklch, var(--colorAccentBg) 90%, transparent);
+    --accent-fg: color-mix(in oklch, var(--colorAccentFg) 95%, transparent);
 
-  /* Window Controls */
-  --window-button-size: 28px;
-  --window-button-border-radius: 25px;
-  --titlebar-height: 40px;
+    /* Window Controls */
+    --window-button-size: 28px;
+    --window-button-border-radius: 25px;
+    --titlebar-height: 40px;
 
-  /* Tab Configuration */
-  --tab-width-vertical: 250px;
-  --tab-width-stacked: 500px;
-  --tab-translate-offset: 120%;
-  --tab-hover-translate-left: 5px;
-  --tab-hover-translate-right: -100%;
+    /* Tab Configuration */
+    --tab-width-vertical: 250px;
+    --tab-width-stacked: 500px;
+    --tab-translate-offset: 120%;
+    --tab-hover-translate-left: 5px;
+    --tab-hover-translate-right: -100%;
 
-  /* Z-Index Layers */
-  --z-tooltip: 9999999;
-  --z-popup: 9999999;
-  --z-header: 1020;
-  --z-mainbar: 1010;
-  --z-bookmark: 1001;
-  --z-window-controls: 10000;
-  --z-panels: 999;
-  --z-tabs: 100;
+    /* Z-Index Layers */
+    --z-tooltip: 9999999;
+    --z-popup: 9999999;
+    --z-header: 1020;
+    --z-mainbar: 1010;
+    --z-bookmark: 1001;
+    --z-window-controls: 10000;
+    --z-panels: 999;
+    --z-tabs: 100;
 
-  /* Animation & Transitions */
-  --transition-main: transform 0.2s 0.2s ease-in-out;
-  --transition-panels: width 0.2s ease-out;
-  --transition-page: opacity 0.7s;
-  --transition-newtab: opacity 200ms ease 150ms;
+    /* Animation & Transitions */
+    --transition-main: transform 0.2s 0.2s ease-in-out;
+    --transition-panels: width 0.2s ease-out;
+    --transition-page: opacity 0.7s;
+    --transition-newtab: opacity 200ms ease 150ms;
 
-  /* Default positions (hidden state) */
-  --header-Y: calc(-100px);
-  --mainbar-Y: calc(-80px);
-  --bookmark-Y: calc(-30px);
+    /* Default positions (hidden state) */
+    --header-Y: calc(-100px);
+    --mainbar-Y: calc(-80px);
+    --bookmark-Y: calc(-30px);
 
-  /* Hover positions */
-  --header-hover-Y: calc(0px);
-  --mainbar-hover-Y: calc(0px + var(--tab-stacking-offset));
-  --bookmark-hover-Y: calc(40px + var(--tab-stacking-offset));
+    /* Hover positions */
+    --header-hover-Y: calc(0px);
+    --mainbar-hover-Y: calc(0px + var(--tab-stacking-offset));
+    --bookmark-hover-Y: calc(40px + var(--tab-stacking-offset));
 
-  /* Tabs-top positions */
-  --mainbar-tabs-top-hover-Y: calc(40px + var(--tab-stacking-offset));
-  --bookmark-tabs-top-hover-Y: calc(90px + var(--tab-stacking-offset));
+    /* Tabs-top positions */
+    --mainbar-tabs-top-hover-Y: calc(40px + var(--tab-stacking-offset));
+    --bookmark-tabs-top-hover-Y: calc(90px + var(--tab-stacking-offset));
 
-  /* Edit mode positions */
-  --mainbar-edit-Y: calc(40px + var(--tab-stacking-offset));
-  --bookmark-edit-Y: calc(90px + var(--tab-stacking-offset));
+    /* Edit mode positions */
+    --mainbar-edit-Y: calc(40px + var(--tab-stacking-offset));
+    --bookmark-edit-Y: calc(90px + var(--tab-stacking-offset));
 }
 
 /* Tab stacking offset when enabled */
-:root:has(#browser.substrip-tabs-on > #header > .tabbar-wrapper > #tabs-tabbar-container > #tabs-subcontainer) {
-  --tab-stacking-offset: 30px;
+:root:has(
+    #browser.substrip-tabs-on
+        > #header
+        > .tabbar-wrapper
+        > #tabs-tabbar-container
+        > #tabs-subcontainer
+) {
+    --tab-stacking-offset: 30px;
 }
 
 /* ========== MAIN BROWSER CONTAINER ========== */
 
 /* Main auto-hide functionality (exclude settings page) */
 :not(:has(#main > .webpageview > .settings-container)) {
-  /* ========== BROWSER LAYOUT ADJUSTMENTS ========== */
+    /* ========== BROWSER LAYOUT ADJUSTMENTS ========== */
 
-  #browser > #header,
-  #browser > #main > .mainbar,
-  #browser.bookmark-bar-top > #main > .bookmark-bar {
-    will-change: transform;
-  }
-
-  #browser:is(.tabs-left, .tabs-right) #tabs-tabbar-container {
-    will-change: transform;
-  }
-  #browser {
-    & {
-      background: var(--background) left top fixed no-repeat !important;
-      background-size: 100vw 100vh !important;
+    #browser > #header,
+    #browser > #main > .mainbar,
+    #browser.bookmark-bar-top > #main > .bookmark-bar {
+        will-change: transform;
     }
 
-    /* Adjust positions when bookmark bar is disabled */
-    &:is(.bookmark-bar-top-off, .bookmark-bar-bottom-off) {
-      --header-Y: calc(-80px);
-      --mainbar-Y: calc(-40px);
+    #browser:is(.tabs-left, .tabs-right) #tabs-tabbar-container {
+        will-change: transform;
+    }
+    #browser {
+        & {
+            background: var(--background) left top fixed no-repeat !important;
+            background-size: 100vw 100vh !important;
+        }
+
+        /* Adjust positions when bookmark bar is disabled */
+        &:is(.bookmark-bar-top-off, .bookmark-bar-bottom-off) {
+            --header-Y: calc(-80px);
+            --mainbar-Y: calc(-40px);
+        }
+
+        &.bookmark-bar-bottom {
+            --mainbar-Y: -40px;
+        }
+
+        /* Special cases */
+        &:is(.bookmark-bar-top-off, .bookmark-bar-bottom-off) {
+            --header-Y: calc(-80px);
+        }
+    }
+    #browser > #header,
+    #browser > #main > .mainbar,
+    #browser.bookmark-bar-top > #main > .bookmark-bar {
+        position: absolute;
+        width: 100%;
+        border: none;
+        align-content: center;
+    }
+    /* ========== HEADER CONFIGURATION ========== */
+    #browser > #header {
+        transform: translateY(var(--header-Y));
+        z-index: var(--z-header);
+        inset-block-start: 0;
+        transition: var(--transition-main);
     }
 
-    &.bookmark-bar-bottom {
-      --mainbar-Y: -40px;
+    /* ========== MAIN TOOLBAR CONFIGURATION ========== */
+    #browser > #main > .mainbar {
+        transform: translateY(var(--mainbar-Y));
+        height: var(--mainbar-height);
+        z-index: var(--z-mainbar);
+        transition: var(--transition-main);
     }
 
-    /* Special cases */
-    &:is(.bookmark-bar-top-off, .bookmark-bar-bottom-off) {
-      --header-Y: calc(-80px);
+    /* ========== BOOKMARK BAR CONFIGURATION ========== */
+    #browser.bookmark-bar-top > #main > .bookmark-bar {
+        transform: translateY(var(--bookmark-Y));
+        height: var(--bookmark-height);
+        z-index: var(--z-bookmark);
+        transition: var(--transition-main);
     }
 
-    /* Grid layout adjustments */
-    & > #main {
-      grid-row: 2;
+    .bookmark-bar {
+        background: var(--background) left top no-repeat fixed;
+        background-size: var(--background-size);
+        -webkit-app-region: none !important;
+    }
+    #header,
+    #header *,
+    .mainbar,
+    .mainbar > *,
+    .bookmark-bar *,
+    .toolbar-spacer,
+    .toolbar-spacer * {
+        background: transparent;
+        -webkit-app-region: none !important;
     }
 
-    & > #footer {
-      grid-row: 3;
+    /* ========== HOVER INTERACTIONS - COMPLEX LOGIC ========== */
+    /* TABS-TOP MODE - Header shows first on hover */
+    #browser {
+        &.tabs-top:has(
+                :is(
+                    #header,
+                    .mainbar,
+                    .ToolbarButtonPopup-DefaultStyles,
+                    .ToolbarButtonPopup-DefaultStyles *
+                ):hover
+            ),
+        &.bookmark-bar-top:has(:is(.bookmark-bar):hover) {
+            --header-Y: calc(0px);
+            --mainbar-Y: var(--mainbar-tabs-top-hover-Y);
+            --bookmark-Y: var(--bookmark-tabs-top-hover-Y);
+        }
+
+        /* TABS-LEFT/RIGHT/BOTTOM MODE - Different stacking order */
+        &:is(.tabs-left, .tabs-right, .tabs-bottom)
+            :has(
+                :is(
+                    #header,
+                    .mainbar,
+                    .ToolbarButtonPopup-DefaultStyles,
+                    .ToolbarButtonPopup-DefaultStyles *
+                ):hover
+            ),
+        &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom):has(
+                :is(.bookmark-bar):hover
+            ),
+        &.toolbar-edit-mode {
+            --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
+            --bookmark-Y: calc(50px + var(--tab-stacking-offset)) !important;
+        }
+
+        /* TOOLBAR EDIT MODE - FORCE VISIBILITY */
+        &.toolbar-edit-mode {
+            & > #header {
+                --header-Y: var(--header-hover-Y) !important;
+            }
+
+            &.tabs-top {
+                --mainbar-Y: var(--mainbar-edit-Y) !important;
+            }
+
+            &.bookmark-bar-top {
+                --bookmark-Y: var(--bookmark-edit-Y) !important;
+            }
+
+            &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom) {
+                --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
+                --bookmark-Y: calc(
+                    50px + var(--tab-stacking-offset)
+                ) !important;
+            }
+        }
+
+        /* URL BAR DROPDOWN - FORCE VISIBILITY */
+        &:has(.UrlBar-UrlFieldWrapper .OmniDropdown) {
+            --header-Y: calc(0px);
+            --mainbar-Y: var(--mainbar-edit-Y) !important;
+
+            &:not(.tabs-top) {
+                --mainbar-Y: calc(0px) !important;
+            }
+
+            &.bookmark-bar-top {
+                --bookmark-Y: var(--bookmark-edit-Y) !important;
+
+                &.tabs-top {
+                    --bookmark-Y: var(--bookmark-tabs-top-hover-Y) !important;
+                }
+
+                &:not(.tabs-top) {
+                    --mainbar-Y: calc(0px) !important;
+                    --bookmark-Y: calc(50px) !important;
+                }
+            }
+        }
+
+        /* BOOKMARK BAR SPECIAL CASES */
+        &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom):has(
+                :is(
+                    #header,
+                    .mainbar,
+                    .bookmark-bar,
+                    .ToolbarButtonPopup-DefaultStyles,
+                    .ToolbarButtonPopup-DefaultStyles *
+                ):hover
+            ) {
+            --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
+            --bookmark-Y: calc(50px + var(--tab-stacking-offset)) !important;
+        }
     }
-  }
-  #browser > #header,
-  #browser > #main > .mainbar,
-  #browser.bookmark-bar-top > #main > .bookmark-bar {
-    position: absolute;
-    width: 100%;
-    border: none;
-    align-content: center;
-  }
-  /* ========== HEADER CONFIGURATION ========== */
-  #browser > #header {
-    transform: translateY(var(--header-Y));
-    z-index: var(--z-header);
-    inset-block-start: 0;
-    transition: var(--transition-main);
-  }
 
-  /* ========== MAIN TOOLBAR CONFIGURATION ========== */
-  #browser > #main > .mainbar {
-    transform: translateY(var(--mainbar-Y));
-    height: var(--mainbar-height);
-    z-index: var(--z-mainbar);
-    transition: var(--transition-main);
-  }
-
-  /* ========== BOOKMARK BAR CONFIGURATION ========== */
-  #browser.bookmark-bar-top > #main > .bookmark-bar {
-    transform: translateY(var(--bookmark-Y));
-    height: var(--bookmark-height);
-    z-index: var(--z-bookmark);
-    transition: var(--transition-main);
-  }
-
-  .bookmark-bar {
-    background: var(--background) left top no-repeat fixed;
-    background-size: var(--background-size);
-    -webkit-app-region: none !important;
-  }
-  #header,
-  #header *,
-  .mainbar,
-  .mainbar > *,
-  .bookmark-bar *,
-  .toolbar-spacer,
-  .toolbar-spacer * {
-    background: transparent;
-    -webkit-app-region: none !important;
-  }
-
-  /* ========== HOVER INTERACTIONS - COMPLEX LOGIC ========== */
-  /* TABS-TOP MODE - Header shows first on hover */
-  #browser {
-    &.tabs-top:has(:is(#header, .mainbar, .ToolbarButtonPopup-DefaultStyles, .ToolbarButtonPopup-DefaultStyles *):hover),
-    &.bookmark-bar-top:has(:is(.bookmark-bar):hover) {
-      --header-Y: calc(0px);
-      --mainbar-Y: var(--mainbar-tabs-top-hover-Y);
-      --bookmark-Y: var(--bookmark-tabs-top-hover-Y);
+    /* ========== TAB STYLING AND BEHAVIOR ========== */
+    #browser .tab.active * {
+        background: var(--accent-bg);
+        color: var(--accent-fg);
     }
 
-    /* TABS-LEFT/RIGHT/BOTTOM MODE - Different stacking order */
-    &:is(.tabs-left, .tabs-right, .tabs-bottom)
-      :has(:is(#header, .mainbar, .ToolbarButtonPopup-DefaultStyles, .ToolbarButtonPopup-DefaultStyles *):hover),
-    &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom):has(:is(.bookmark-bar):hover),
-    &.toolbar-edit-mode {
-      --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
-      --bookmark-Y: calc(50px + var(--tab-stacking-offset)) !important;
+    .svg-tab-stack {
+        display: none;
     }
 
-    /* TOOLBAR EDIT MODE - FORCE VISIBILITY */
-    &.toolbar-edit-mode {
-      & > #header {
-        --header-Y: var(--header-hover-Y) !important;
-      }
+    /* ========== VERTICAL TABS BEHAVIOR ========== */
+    #browser {
+        &.tabs-left:has(:is(#panels-container.left):hover)
+            #tabs-tabbar-container.left {
+            transform: translateX(var(--tab-hover-translate-left)) !important;
+        }
 
-      &.tabs-top {
-        --mainbar-Y: var(--mainbar-edit-Y) !important;
-      }
+        &.tabs-right:has(:is(#panels-container.right):hover)
+            #tabs-tabbar-container.right {
+            transform: translateX(var(--tab-hover-translate-right)) !important;
+        }
 
-      &.bookmark-bar-top {
-        --bookmark-Y: var(--bookmark-edit-Y) !important;
-      }
+        &:is(.tabs-left, .tabs-right):has(:is(.tabbar-wrapper):hover) {
+            & #tabs-tabbar-container.left {
+                transform: translateX(
+                    var(--tab-hover-translate-left)
+                ) !important;
+            }
 
-      &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom) {
-        --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
-        --bookmark-Y: calc(50px + var(--tab-stacking-offset)) !important;
-      }
+            & #tabs-tabbar-container.right {
+                transform: translateX(
+                    var(--tab-hover-translate-right)
+                ) !important;
+            }
+        }
+
+        &.tabs-bottom #tabs-tabbar-container {
+            transition: var(--transition-main);
+            background: var(--background) left top no-repeat fixed;
+            background-size: var(--background-size);
+            background-position: bottom;
+        }
+    }
+    #tabs-subcontainer {
+        background: transparent;
+    }
+    /* ========== VERTICAL TABS LAYOUT ========== */
+    #browser:is(.tabs-left, .tabs-right) {
+        .tabbar-wrapper {
+            &:has(#tabs-subcontainer) #tabs-tabbar-container {
+                width: var(--tab-width-stacked) !important;
+            }
+
+            & #tabs-tabbar-container,
+            & #tabs-subcontainer,
+            & #tabs-subcontainer .tab-strip {
+                width: var(--tab-width-vertical) !important;
+            }
+
+            width: 10px;
+            z-index: var(--z-tabs);
+            background: var(--background) left top no-repeat fixed;
+            background-size: var(--background-size);
+
+            &:empty {
+                display: none !important;
+            }
+        }
+
+        #tabs-subcontainer,
+        #tabs-subcontainer .tab-strip {
+            transition: var(--transition-main);
+        }
+
+        #tabs-tabbar-container {
+            position: absolute;
+            transition: var(--transition-main);
+            background: var(--background) left top no-repeat fixed;
+            background-size: var(--background-size);
+            height: 100%;
+            background-position-y: -5px !important;
+
+            &.right {
+                transform: translateX(var(--tab-translate-offset));
+                background-position-x: calc(100% + 50px) !important;
+            }
+
+            &.left {
+                transform: translateX(calc(-1 * var(--tab-translate-offset)));
+            }
+
+            &.left:has(
+                    button.ToolbarButton-Button[name="WorkspaceButton"][aria-expanded="true"]
+                ) {
+                transform: translateX(-100%);
+            }
+
+            &.right:has(
+                    button.ToolbarButton-Button[name="WorkspaceButton"][aria-expanded="true"]
+                ) {
+                transform: translateX(100%);
+            }
+        }
     }
 
-    /* URL BAR DROPDOWN - FORCE VISIBILITY */
-    &:has(.UrlBar-UrlFieldWrapper .OmniDropdown) {
-      --header-Y: calc(0px);
-      --mainbar-Y: var(--mainbar-edit-Y) !important;
+    /* ========== WINDOW CONTROLS ========== */
+    .window-buttongroup {
+        height: 100%;
+        align-items: center;
+        inset-block-start: 0 !important;
 
-      &:not(.tabs-top) {
-        --mainbar-Y: calc(0px) !important;
-      }
+        & button {
+            width: var(--window-button-size);
+            height: var(--window-button-size);
+            border: var(--window-button-border);
+            z-index: var(--z-window-controls);
+            border-radius: var(--window-button-border-radius);
+        }
+    }
 
-      &.bookmark-bar-top {
-        --bookmark-Y: var(--bookmark-edit-Y) !important;
+    #titlebar {
+        height: var(--titlebar-height);
+    }
+
+    #browser .window-buttongroup {
+        .window-minimize:hover {
+            background: var(--hover-color-minimize);
+        }
+
+        .window-maximize:hover {
+            background: var(--hover-color-maximize);
+        }
+
+        .window-close:hover {
+            background: var(--hover-color-close);
+        }
+    }
+
+    /* ========== PANELS CONFIGURATION ========== */
+    #panels-container {
+        background: transparent;
+        z-index: var(--z-panels);
+    }
+
+    :not(.resizing)#panels-container.overlay .panel-group {
+        transition: var(--transition-panels);
+    }
+
+    /* ========== BACKGROUND OVERLAY EFFECTS ========== */
+    /* Overlay for bookmark bar when at top */
+    #browser:is(.bookmark-bar-top) {
+        --bookmark-overlay-height: 50px;
 
         &.tabs-top {
-          --bookmark-Y: var(--bookmark-tabs-top-hover-Y) !important;
+            --bookmark-overlay-height: calc(100px + var(--tab-stacking-offset));
         }
 
-        &:not(.tabs-top) {
-          --mainbar-Y: calc(0px) !important;
-          --bookmark-Y: calc(50px) !important;
+        .bookmark-bar::before {
+            content: "";
+            width: 100%;
+            height: calc(var(--bookmark-overlay-height) + 100%);
+            background: var(--background) left top fixed no-repeat;
+            background-size: 100vw 100vh;
+            position: absolute;
+            bottom: 0;
+            background-position: left top;
+            left: 0;
+            transition: height 0.2s 0.2s cubic-bezier(0, 0.58, 0.66, 1.04);
         }
-      }
     }
 
-    /* BOOKMARK BAR SPECIAL CASES */
-    &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom):has(
-        :is(#header, .mainbar, .bookmark-bar, .ToolbarButtonPopup-DefaultStyles, .ToolbarButtonPopup-DefaultStyles *):hover
-      ) {
-      --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
-      --bookmark-Y: calc(50px + var(--tab-stacking-offset)) !important;
-    }
-  }
+    /* Overlay for mainbar when bookmark bar is not at top */
+    #browser:not(:is(.bookmark-bar-top)) {
+        --mainbar-overlay-height: 0px;
 
-  /* ========== TAB STYLING AND BEHAVIOR ========== */
-  #browser .tab.active * {
-    background: var(--accent-bg);
-    color: var(--accent-fg);
-  }
-
-  .svg-tab-stack {
-    display: none;
-  }
-
-  /* ========== VERTICAL TABS BEHAVIOR ========== */
-  #browser {
-    &.tabs-left:has(:is(#panels-container.left):hover) #tabs-tabbar-container.left {
-      transform: translateX(var(--tab-hover-translate-left)) !important;
+        &.tabs-top {
+            --mainbar-overlay-height: calc(35px + var(--tab-stacking-offset));
+        }
+        .mainbar::before {
+            content: "";
+            width: 100%;
+            height: calc(var(--mainbar-overlay-height) + 100%);
+            background: var(--background) left top fixed no-repeat;
+            background-size: 100vw 100vh;
+            position: absolute;
+            bottom: 0;
+            background-position: left top;
+            left: 0;
+            transition: height 0.2s 0.2s cubic-bezier(0, 0.58, 0.66, 1.04);
+        }
     }
 
-    &.tabs-right:has(:is(#panels-container.right):hover) #tabs-tabbar-container.right {
-      transform: translateX(var(--tab-hover-translate-right)) !important;
+    /* ========== URL BAR AND FORM ELEMENTS ========== */
+    .UrlBar-AddressField,
+    .UrlBar-AddressField *:not(.OmniDropdown) {
+        border: none;
+        background: transparent;
     }
 
-    &:is(.tabs-left, .tabs-right):has(:is(.tabbar-wrapper):hover) {
-      & #tabs-tabbar-container.left {
-        transform: translateX(var(--tab-hover-translate-left)) !important;
-      }
-
-      & #tabs-tabbar-container.right {
-        transform: translateX(var(--tab-hover-translate-right)) !important;
-      }
+    .UrlBar-AddressField {
+        box-shadow: 0 0 20px 9px #ffffff21;
     }
 
-    &.tabs-bottom #tabs-tabbar-container {
-      transition: var(--transition-main);
-      background: var(--background) left top no-repeat fixed;
-      background-size: var(--background-size);
-      background-position: bottom;
-    }
-  }
-  #tabs-subcontainer {
-    background: transparent;
-  }
-  /* ========== VERTICAL TABS LAYOUT ========== */
-  #browser:is(.tabs-left, .tabs-right) {
-    .tabbar-wrapper {
-      &:has(#tabs-subcontainer) #tabs-tabbar-container {
-        width: var(--tab-width-stacked) !important;
-      }
-
-      & #tabs-tabbar-container,
-      & #tabs-subcontainer,
-      & #tabs-subcontainer .tab-strip {
-        width: var(--tab-width-vertical) !important;
-      }
-
-      width: 10px;
-      z-index: var(--z-tabs);
-      background: var(--background) left top no-repeat fixed;
-      background-size: var(--background-size);
-
-      &:empty {
-        display: none !important;
-      }
+    #main {
+        border: none;
     }
 
-    #tabs-subcontainer,
-    #tabs-subcontainer .tab-strip {
-      transition: var(--transition-main);
+    /* ========== Z-INDEX MANAGEMENT ========== */
+    .ToolbarButtonPopup-DefaultStyles {
+        z-index: var(--z-popup) !important;
     }
 
-    #tabs-tabbar-container {
-      position: absolute;
-      transition: var(--transition-main);
-      background: var(--background) left top no-repeat fixed;
-      background-size: var(--background-size);
-      height: 100%;
-      background-position-y: -5px !important;
-
-      &.right {
-        transform: translateX(var(--tab-translate-offset));
-        background-position-x: calc(100% + 50px) !important;
-      }
-
-      &.left {
-        transform: translateX(calc(-1 * var(--tab-translate-offset)));
-      }
-
-      &.left:has(button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']) {
-        transform: translateX(-100%);
-      }
-
-      &.right:has(button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']) {
-        transform: translateX(100%);
-      }
-    }
-  }
-
-  /* ========== WINDOW CONTROLS ========== */
-  .window-buttongroup {
-    height: 100%;
-    align-items: center;
-    inset-block-start: 0 !important;
-
-    & button {
-      width: var(--window-button-size);
-      height: var(--window-button-size);
-      border: var(--window-button-border);
-      z-index: var(--z-window-controls);
-      border-radius: var(--window-button-border-radius);
-    }
-  }
-
-  #titlebar {
-    height: var(--titlebar-height);
-  }
-
-  #browser .window-buttongroup {
-    .window-minimize:hover {
-      background: var(--hover-color-minimize);
+    #vivaldi-tooltip {
+        z-index: var(--z-tooltip);
     }
 
-    .window-maximize:hover {
-      background: var(--hover-color-maximize);
+    /* ========== FULLSCREEN MODE ========== */
+    #browser.fullscreen {
+        & #main {
+            grid-template: 0 auto 0 / 100%;
+        }
+
+        & .mainbar {
+            display: none;
+        }
     }
-
-    .window-close:hover {
-      background: var(--hover-color-close);
-    }
-  }
-
-  /* ========== PANELS CONFIGURATION ========== */
-  #panels-container {
-    background: transparent;
-    z-index: var(--z-panels);
-  }
-
-  :not(.resizing)#panels-container.overlay .panel-group {
-    transition: var(--transition-panels);
-  }
-
-  /* ========== BACKGROUND OVERLAY EFFECTS ========== */
-  /* Overlay for bookmark bar when at top */
-  #browser:is(.bookmark-bar-top) {
-    --bookmark-overlay-height: 50px;
-
-    &.tabs-top {
-      --bookmark-overlay-height: calc(100px + var(--tab-stacking-offset));
-    }
-
-    .bookmark-bar::before {
-      content: '';
-      width: 100%;
-      height: calc(var(--bookmark-overlay-height) + 100%);
-      background: var(--background) left top fixed no-repeat;
-      background-size: 100vw 100vh;
-      position: absolute;
-      bottom: 0;
-      background-position: left top;
-      left: 0;
-      transition: height 0.2s 0.2s cubic-bezier(0, 0.58, 0.66, 1.04);
-    }
-  }
-
-  /* Overlay for mainbar when bookmark bar is not at top */
-  #browser:not(:is(.bookmark-bar-top)) {
-    --mainbar-overlay-height: 0px;
-
-    &.tabs-top {
-      --mainbar-overlay-height: calc(35px + var(--tab-stacking-offset));
-    }
-    .mainbar::before {
-      content: '';
-      width: 100%;
-      height: calc(var(--mainbar-overlay-height) + 100%);
-      background: var(--background) left top fixed no-repeat;
-      background-size: 100vw 100vh;
-      position: absolute;
-      bottom: 0;
-      background-position: left top;
-      left: 0;
-      transition: height 0.2s 0.2s cubic-bezier(0, 0.58, 0.66, 1.04);
-    }
-  }
-
-  /* ========== URL BAR AND FORM ELEMENTS ========== */
-  .UrlBar-AddressField,
-  .UrlBar-AddressField *:not(.OmniDropdown) {
-    border: none;
-    background: transparent;
-  }
-
-  .UrlBar-AddressField {
-    box-shadow: 0 0 20px 9px #ffffff21;
-  }
-
-  #main {
-    border: none;
-  }
-
-  /* ========== Z-INDEX MANAGEMENT ========== */
-  .ToolbarButtonPopup-DefaultStyles {
-    z-index: var(--z-popup) !important;
-  }
-
-  #vivaldi-tooltip {
-    z-index: var(--z-tooltip);
-  }
-
-  /* ========== FULLSCREEN MODE ========== */
-  #browser.fullscreen {
-    & #main {
-      grid-template: 0 auto 0 / 100%;
-    }
-
-    & .mainbar {
-      display: none;
-    }
-  }
 }
 
 #main > .inner {
-  grid-row: 2;
-  margin-block-start: 5px;
+    margin-block-start: 5px;
 }
 
 /* ========== PAGE TRANSITIONS ========== */
 .webpageview {
-  visibility: visible;
-  transition: var(--transition-page);
-  view-transition-name: page-content;
+    visibility: visible;
+    transition: var(--transition-page);
+    view-transition-name: page-content;
 }
 
 @starting-style {
-  .webpageview {
-    opacity: 0 !important;
-  }
+    .webpageview {
+        opacity: 0 !important;
+    }
 }
 
 /* ========== START PAGE STYLING ========== */
-.startpage *:not(#speeddial-settings-pane, #speeddial-settings-pane *, .OmniDropdown) {
-  background: transparent;
-  box-shadow: none;
+.startpage
+    *:not(#speeddial-settings-pane, #speeddial-settings-pane *, .OmniDropdown) {
+    background: transparent;
+    box-shadow: none;
 }
 
 /* ========== FOOTER ========== */
 #footer {
-  background: transparent;
+    background: transparent;
 }
 
 #modal-bg.toolbar-editor {
-  z-index: 11111;
+    z-index: 11111;
 }
