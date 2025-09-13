@@ -388,10 +388,8 @@
   /* ========== BACKGROUND OVERLAY EFFECTS ========== */
   /* Overlay for bookmark bar when at top */
   #browser:is(.bookmark-bar-top) {
-    /* DomyÅ›lna wartoÅ›Ä‡ dla non-tabs-top */
     --bookmark-overlay-height: 50px;
 
-    /* Kiedy tabs-top jest aktywny, zwiÄ™kszamy wysokoÅ›Ä‡ o 40px */
     &.tabs-top {
       --bookmark-overlay-height: calc(100px + var(--tab-stacking-offset));
     }
@@ -412,10 +410,15 @@
 
   /* Overlay for mainbar when bookmark bar is not at top */
   #browser:not(:is(.bookmark-bar-top)) {
+    --mainbar-overlay-height: 0px;
+
+    &.tabs-top {
+      --mainbar-overlay-height: calc(35px + var(--tab-stacking-offset));
+    }
     .mainbar::before {
       content: '';
       width: 100%;
-      height: calc(var(--mainbar-Y) + 100%);
+      height: calc(var(--mainbar-overlay-height) + 100%);
       background: var(--background) left top fixed no-repeat;
       background-size: 100vw 100vh;
       position: absolute;
