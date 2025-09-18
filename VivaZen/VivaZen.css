@@ -181,7 +181,9 @@
                     #header,
                     .mainbar,
                     .ToolbarButtonPopup-DefaultStyles,
-                    .ToolbarButtonPopup-DefaultStyles *
+                    .ToolbarButtonPopup-DefaultStyles *,
+                    .button-popup,
+                    .button-popup *
                 ):hover
             ),
         &.bookmark-bar-top:has(:is(.bookmark-bar):hover) {
@@ -197,7 +199,9 @@
                     #header,
                     .mainbar,
                     .ToolbarButtonPopup-DefaultStyles,
-                    .ToolbarButtonPopup-DefaultStyles *
+                    .ToolbarButtonPopup-DefaultStyles *,
+                    .button-popup,
+                    .button-popup *
                 ):hover
             ),
         &.bookmark-bar-top:is(.tabs-left, .tabs-right, .tabs-bottom):has(
@@ -260,7 +264,9 @@
                     .mainbar,
                     .bookmark-bar,
                     .ToolbarButtonPopup-DefaultStyles,
-                    .ToolbarButtonPopup-DefaultStyles *
+                    .ToolbarButtonPopup-DefaultStyles *,
+                    .button-popup,
+                    .button-popup *
                 ):hover
             ) {
             --mainbar-Y: calc(0px + var(--tab-stacking-offset)) !important;
@@ -280,17 +286,38 @@
 
     /* ========== VERTICAL TABS BEHAVIOR ========== */
     #browser {
-        &.tabs-left:has(:is(#panels-container.left):hover)
-            #tabs-tabbar-container.left {
+        &.tabs-left:has(
+                :is(
+                    #panels-container.left,
+                    .button-popup,
+                    .button-popup *
+                ):hover
+            )
+            #tabs-tabbar-container.left,
+        &.tabs-left.toolbar-edit-mode #tabs-tabbar-container.left {
             transform: translateX(var(--tab-hover-translate-left)) !important;
         }
-
-        &.tabs-right:has(:is(#panels-container.right):hover)
-            #tabs-tabbar-container.right {
+        &.tabs-left.toolbar-edit-mode:has(.tabbar-wrapper:hover)
+            .tabbar-wrapper,
+        &.tabs-right.toolbar-edit-mode:has(.tabbar-wrapper:hover)
+            .tabbar-wrapper {
+            z-index: 9999 !important;
+        }
+        &.tabs-right:has(
+                :is(
+                    #panels-container.right,
+                    .button-popup,
+                    .button-popup *
+                ):hover
+            )
+            #tabs-tabbar-container.right,
+        &.tabs-right.toolbar-edit-mode #tabs-tabbar-container.right {
             transform: translateX(var(--tab-hover-translate-right)) !important;
         }
 
-        &:is(.tabs-left, .tabs-right):has(:is(.tabbar-wrapper):hover) {
+        &:is(.tabs-left, .tabs-right):has(
+                :is(.tabbar-wrapper, .button.popup):hover
+            ) {
             & #tabs-tabbar-container.left {
                 transform: translateX(
                     var(--tab-hover-translate-left)
@@ -476,7 +503,8 @@
     }
 
     /* ========== Z-INDEX MANAGEMENT ========== */
-    .ToolbarButtonPopup-DefaultStyles {
+    .ToolbarButtonPopup-DefaultStyles,
+    .button-popup {
         z-index: var(--z-popup) !important;
     }
 
@@ -521,8 +549,9 @@
 }
 
 /* ========== FOOTER ========== */
-#footer {
-    background: transparent;
+#footer,
+#footer > div {
+    background: transparent !important;
 }
 
 #modal-bg.toolbar-editor {
