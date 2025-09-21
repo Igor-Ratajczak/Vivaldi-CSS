@@ -32,11 +32,13 @@ div#panels-container {
 .tabbar-wrapper:hover:has(#tabs-subcontainer) #tabs-tabbar-container {
   width: 500px !important;
 }
+
 .tabbar-wrapper:hover #tabs-tabbar-container,
 .tabbar-wrapper:hover #tabs-subcontainer,
 .tabbar-wrapper:hover #tabs-subcontainer .tab-strip {
   width: 250px !important;
 }
+
 #tabs-subcontainer,
 #tabs-subcontainer .tab-strip {
   width: 0px !important;
@@ -69,15 +71,13 @@ div#tabs-tabbar-container {
   position: absolute;
   width: 40px !important;
 }
-div#tabs-tabbar-container.left:has(
-  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
-) {
+
+div#tabs-tabbar-container.left:has(button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']) {
   left: 0 !important;
   width: 250px !important;
 }
-div#tabs-tabbar-container.right:has(
-  button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']
-) {
+
+div#tabs-tabbar-container.right:has(button.ToolbarButton-Button[name='WorkspaceButton'][aria-expanded='true']) {
   right: 0 !important;
   width: 250px !important;
 }
@@ -235,10 +235,18 @@ button {
 .OmniDropdown:not(.startpage .OmniDropdown) {
   position: fixed;
   top: 50% !important;
-  transform: translate(-50%, -50%);
   width: 35vw;
   left: 50%;
   padding: 10px !important;
+  transition: transform 0.3s ease;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: top left;
+}
+
+@starting-style {
+  .OmniDropdown:not(.startpage .OmniDropdown) {
+    transform: scale(0) translate(-50%, -50%);
+  }
 }
 
 .OmniDropdown > ul > li {
@@ -272,9 +280,7 @@ input#urlFieldInput {
   justify-content: end;
 }
 
-.color-behind-tabs-on
-  .UrlBar-AddressField:focus-within
-  > .UrlBar-UrlFieldWrapper {
+.color-behind-tabs-on .UrlBar-AddressField:focus-within > .UrlBar-UrlFieldWrapper {
   outline: 2px solid;
   border-radius: 25px;
   padding: 0px 20px;
@@ -319,9 +325,7 @@ div.webpageview {
 
 /* Startpage */
 .startpage
-  *:not(
-    div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title
-  ):not(
+  *:not(div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title):not(
     div#speeddial-settings-pane.SpeedDialView-Settings.navigation-title *
   ):not(.OmniDropdown) {
   background: transparent;
