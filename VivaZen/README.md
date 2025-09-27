@@ -28,6 +28,20 @@
 
 ## Your changes
 
+### REMOVE STYLING FOR ELEMENTS
+
+If you don't want any changes in themes only auto hide remove code under
+
+```css
+    /* ========================================== */
+    /* ========== STYLING FOR ELEMENTS ========== */
+    /* ========================================== */
+
+    ...
+```
+
+Where also you can delete **START PAGE BACKGRoUND**, **PAGE TRANSITIONS** and **WINDOW CONTROLS**
+
 ### Change background
 
 1. Paste your picture in **vivaldi/Default/VivaldiThumbnails/**
