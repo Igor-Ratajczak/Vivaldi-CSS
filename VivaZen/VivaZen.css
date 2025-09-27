@@ -369,6 +369,7 @@
 
 #main > .inner {
   margin-block-start: 5px;
+  overflow: clip !important;
 }
 
 /* ========== TOOLBAR Editor ========== */
