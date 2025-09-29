@@ -357,8 +357,8 @@
   }
   /* ========== FULLSCREEN MODE ========== */
   #browser.fullscreen {
-    & #main {
-      grid-template: 0 auto 0 / 100%;
+    & #main > .inner {
+      margin-block-start: 0px;
     }
 
     & .mainbar {
