@@ -13,11 +13,11 @@
 
 You can remove `-webkit-app-region: none`, but auto hide can not work property.
 
-## Video/Screenshots
+## Video
 
-![Video of VivaZen](./screenshots/address-hide.webm)
-![Video of VivaZen](./screenshots/bookmark-hide.webm)
-![Video of VivaZen](./screenshots/address-bookmark-hide.webm)
+![Video of VivaZen](./screenshots/address-bookmark-hide.gif)
+![Video of VivaZen](./screenshots/address-hide.gif)
+![Video of VivaZen](./screenshots/bookmark-hide.gif)
 
 ## How to use it?
 
