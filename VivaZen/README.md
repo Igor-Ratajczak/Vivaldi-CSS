@@ -31,7 +31,7 @@ You can remove `-webkit-app-region: none`, but auto hide can not work property.
 
 ### Auto Hide Options
 
-You can set what has auto hide and what hasn't
+You can set what has auto hide **true** and what hasn't **false**
 
 ```CSS
 --auto-hide-tab_bar: true;
