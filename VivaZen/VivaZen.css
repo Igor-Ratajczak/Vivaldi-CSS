@@ -388,6 +388,10 @@ footer#footer {
             #tabs-tabbar-container.right {
                 transform: translateX(0%);
             }
+            #tabs-tabbar-container > * {
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
         }
 
         &:has(.button-popup),
@@ -398,6 +402,9 @@ footer#footer {
 
             #tabs-tabbar-container.right {
                 transform: translateX(-100%);
+            }
+            #tabs-tabbar-container > * {
+                opacity: 1;
             }
         }
 
@@ -419,6 +426,10 @@ footer#footer {
             #tabs-tabbar-container.right {
                 transform: translateX(-100%) !important;
             }
+
+            #tabs-tabbar-container > * {
+                opacity: 1;
+            }
             &:has(.button-popup),
             &:has(:is(.inner .tabbar-wrapper):hover) .inner {
                 z-index: 100;
@@ -435,6 +446,9 @@ footer#footer {
         display: flex;
         transition: all 0.3s ease;
         overflow: hidden;
+        * {
+            opacity: 1;
+        }
     }
     .tabbar-wrapper #tabs-tabbar-container:has(#tabs-subcontainer) {
         width: var(--tab-width-stacked) !important;
