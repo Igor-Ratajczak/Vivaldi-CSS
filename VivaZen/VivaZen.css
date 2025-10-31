@@ -7,6 +7,7 @@
     --auto-hide-tab_bar: true;
     --auto-hide-address_bar: true;
     --auto-hide-bookmark_bar: true;
+    --auto-hide-web-panel: false;
 
     /* Layout Heights & Positions */
     --titlebar-height: 0px;
@@ -382,54 +383,52 @@ footer#footer {
             width: 10px;
             z-index: 7;
 
-            #tabs-tabbar-container.left {
-                transform: translateX(-100%);
-            }
-            #tabs-tabbar-container.right {
-                transform: translateX(0%);
-            }
-            #tabs-tabbar-container > * {
-                opacity: 0;
-                transition: opacity 0.2s ease;
+            #tabs-tabbar-container {
+                &.left {
+                    transform: translateX(-100%);
+                }
+                &.right {
+                    transform: translateX(0%);
+                }
+
+                > * {
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                }
             }
         }
 
         &:has(.button-popup),
-        &:has(:is(.inner .tabbar-wrapper):hover) {
-            #tabs-tabbar-container.left {
-                transform: translateX(0%);
-            }
-
-            #tabs-tabbar-container.right {
-                transform: translateX(-100%);
-            }
-            #tabs-tabbar-container > * {
-                opacity: 1;
-            }
-        }
-
-        &.tabs-left:has(#panels-container.left:hover) {
-            #tabs-tabbar-container.left {
-                transform: translateX(0%);
-            }
-        }
+        &:has(:is(.inner .tabbar-wrapper):hover),
+        &.tabs-left:has(#panels-container.left:hover),
         &.tabs-right:has(#panels-container.right:hover) {
-            #tabs-tabbar-container.right {
-                transform: translateX(-100%);
+            #tabs-tabbar-container {
+                &.left {
+                    transform: translateX(0%);
+                }
+                &.right {
+                    transform: translateX(-100%);
+                }
+
+                & > * {
+                    opacity: 1;
+                }
             }
         }
+
         @container style(--is-hovering: all) {
-            #tabs-tabbar-container.left {
-                transform: translateX(0%) !important;
+            #tabs-tabbar-container {
+                &.left {
+                    transform: translateX(0%) !important;
+                }
+                &.right {
+                    transform: translateX(-100%) !important;
+                }
+                > * {
+                    opacity: 1;
+                }
             }
 
-            #tabs-tabbar-container.right {
-                transform: translateX(-100%) !important;
-            }
-
-            #tabs-tabbar-container > * {
-                opacity: 1;
-            }
             &:has(.button-popup),
             &:has(:is(.inner .tabbar-wrapper):hover) .inner {
                 z-index: 100;
@@ -537,6 +536,71 @@ footer#footer {
     }
 }
 
+/* ========== WEB PANEL ========== */
+@container style(--auto-hide-web-panel: true) {
+    div#panels-container {
+        transition: var(--transition-main) !important;
+        will-change: width;
+        position: absolute !important;
+        height: 100%;
+
+        &.overlay {
+            width: max-content !important;
+            right: auto !important;
+
+            #panels {
+                width: max-content;
+                overflow: hidden;
+                contain: content;
+            }
+
+            .panel-group {
+                left: 0 !important;
+                position: relative !important;
+                top: 0;
+                width: auto;
+                bottom: 0;
+                background-color: var(--colorBgAlphaBlur);
+            }
+        }
+
+        &.left {
+            transform: translateX(calc(-100% + 10px));
+        }
+        &.right {
+            transform: translateX(calc(100vw - 10px));
+        }
+    }
+
+    #browser {
+        &:has(div#panels-container.left:hover),
+        &.tabs-left:has(div#panels-container.left):has(:is(.inner .tabbar-wrapper):hover) {
+            div#panels-container.left {
+                transform: translateX(0);
+            }
+            #tabs-tabbar-container.left {
+                transform: translateX(calc(0% + 41px));
+            }
+            #tabs-tabbar-container > * {
+                opacity: 1;
+            }
+        }
+
+        &:has(div#panels-container.right:hover),
+        &.tabs-right:has(div#panels-container.right):has(:is(.inner .tabbar-wrapper):hover) {
+            div#panels-container.right {
+                transform: translateX(calc(100vw - 100%));
+            }
+            #tabs-tabbar-container.right {
+                transform: translateX(calc(-100% - 31px));
+            }
+            #tabs-tabbar-container > * {
+                opacity: 1;
+            }
+        }
+    }
+}
+
 /* ========================================== */
 /* ========== STYLING FOR ELEMENTS ========== */
 /* ========================================== */
@@ -556,7 +620,7 @@ footer#footer {
     #tabs-subcontainer,
     #header,
     #main {
-        border: none;
+        border: none !important;
         background: transparent !important;
     }
 
@@ -576,6 +640,7 @@ footer#footer {
     .mainbar,
     #footer > div,
     #tabs-tabbar-container,
+    #panels-container,
     .OmniDropdown,
     .SpeedDialView-Settings,
     .StatusInfo > * {
@@ -589,22 +654,24 @@ footer#footer {
     #browser.address-top .mainbar,
     #browser.address-top .OmniDropdown,
     #browser.bookmark-bar-top .bookmark-bar {
-        background-position: left center !important;
+        background-position: left top !important;
     }
     #browser.tabs-bottom .tabbar-wrapper,
     #browser.tabs-bottom #tabs-tabbar-container,
     #browser.address-bottom .mainbar,
     #browser.address-bottom .OmniDropdown,
     #browser.bookmark-bar-bottom .bookmark-bar {
-        background-position: left center !important;
+        background-position: left bottom !important;
     }
     #browser.tabs-left .tabbar-wrapper,
+    #panels-container.left,
     #browser.tabs-left #tabs-tabbar-container {
         background-position: left center !important;
     }
     #browser.tabs-right .tabbar-wrapper,
+    #panels-container.right,
     #browser.tabs-right #tabs-tabbar-container {
-        background-position: left center !important;
+        background-position: right center !important;
     }
 
     /* URL bar styles */
