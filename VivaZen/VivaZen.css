@@ -12,8 +12,8 @@
     /* Layout Heights & Positions */
     --titlebar-height: 0px;
     --status_bar-height: 0px;
-    --tab_bar-height: 42px;
-    --tab_bar-height-stacked: 75px;
+    --tab_bar-height: 31px;
+    --tab_bar-height-stacked: 62px;
     --address_bar-height: 40px;
     --bookmark_bar-height: 29px;
     --tab_bar-height-top: 0px;
@@ -153,10 +153,10 @@
 
 /* ========== TABS POSITIONING ========== */
 #browser.tabs-top {
-    --tab_bar-height-top: var(--tab_bar-height);
+    --tab_bar-height-top: calc(var(--tab_bar-height) + 5px);
 
     @container style(--auto-hide-tab_bar: true) {
-        --auto-hide-tab-Y-top: var(--tab_bar-height);
+        --auto-hide-tab-Y-top: 100%;
     }
     @container style(--auto-hide-tab_bar: false) {
         --tab-margin-top: var(--tab_bar-height);
@@ -263,12 +263,14 @@
     --auto-hide-bookmark-Y-top: 0px !important;
 }
 #browser:has(.button-popup),
+#browser:has(#urlFieldInput:is(:focus)),
 #browser:has(:is(#header, .address-top .mainbar, .bookmark-bar-top .bookmark-bar):hover) {
     --is-hovering: top;
     --auto-hide-tab-Y-top: 0px !important;
     --auto-hide-address-Y-top: 0px !important;
     --auto-hide-bookmark-Y-top: 0px !important;
 }
+#browser:has(#urlFieldInput:is(:focus)),
 #browser:has(.button-popup),
 #browser:has(:is(#footer, .address-bottom .mainbar, .bookmark-bar-bottom .bookmark-bar):hover) {
     --is-hovering: bottom;
